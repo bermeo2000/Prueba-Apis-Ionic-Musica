@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>musicas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let i of musicas" >
+    <ion-card>  
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="3" style="display: flex; align-items: center;">
+            <img alt="Silhouette of mountains" [src]="i.cover_small" />
+          </ion-col>
+          <ion-col size="7">
+            <ion-row>
+              <ion-col size="12">
+                <ion-card-title>{{i.title}}</ion-card-title>
+              </ion-col>
+              <ion-col size="12">
+                <ion-card-subtitle>{{i.title_short}}</ion-card-subtitle>
+                <ion-card-subtitle>Duracion: {{i.duration}}</ion-card-subtitle>
+              </ion-col>
+              <ion-col size="12">
+                <audio controls>
+                  <source [src]="i.preview">
+                 </audio>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="12">
+            <ion-buttons style="--background:#ed576b">
+              <ion-button (click)="eliminarCancion(i.id)" style="--background:#ed576b;color: #F8F8F8F8;">
+                <ion-icon slot="start" name="trash"></ion-icon>
+                Eliminar
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+       
+      </ion-card-content>
+    </ion-card>
+   </ion-card>
+</ion-content>
